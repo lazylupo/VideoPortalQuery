@@ -1,49 +1,0 @@
-10
-
-dir
-846
-https://dimis.fim.uni-passau.de/svn/Projects/Theseus/de.uop.dimis.air/src/de/uop/dimis/air
-https://dimis.fim.uni-passau.de/svn/Projects/Theseus
-
-
-
-2011-06-03T14:38:31.614019Z
-844
-vilsmai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1e8d0db8-4b5d-0410-a2c2-80fc32991350
-
-mpqfManagement
-dir
-
-backendManagement
-dir
-
-internalObjects
-dir
-
-searchInterface
-dir
-
-translator
-dir
-
-transportProtocoll
-dir
-
-response
-dir
-

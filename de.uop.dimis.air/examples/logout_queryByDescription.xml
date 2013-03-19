@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mpqf:MpegQuery mpqfID="passw?" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
-	<mpqf:Management>
-		<mpqf:Input>
-			<mpqf:ServiceID>http://localhost:8080/axis2/services/TestDBs/db2</mpqf:ServiceID>
-		</mpqf:Input>
-	</mpqf:Management>
-</mpqf:MpegQuery>
