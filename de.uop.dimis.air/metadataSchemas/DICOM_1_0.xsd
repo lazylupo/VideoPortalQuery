@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.5.906 (http://www.liquid-technologies.com)-->
+<!--Created with Liqdicom:UId XML Studio - FREE Community Edition 7.0.5.906 (http://www.liqdicom:UId-technologies.com)-->
+<schema xmlns:dicom="urn:DICOM:schema:2009" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:DICOM:schema:2009" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Complex data types -->
+	<element name="DICOMRoot" type="dicom:DICOMType"/>
+	<complexType name="DICOMType">
+		<sequence>
+			<element name="Patient" type="dicom:PatientType"/>
+			<!--- <element minOccurs="0" name="FileMetaElements" type="dicom:FileMetaElementsType" /> -->
+			<!--- <element minOccurs="0" name="DirectoryStructuringElements" type="dicom:DirectoryStructuringElementsType" /> -->
+		</sequence>
+		<!--- <attribute name="ID" type="dicom:UI" /> -->
+	</complexType>
+	<!--- Customized structure of the Patient Module -->
+	<!--- Required Patient Element -->
+	<complexType name="PatientType">
+		<sequence>
+			<!-- (0010, 0010) required -->
+			<element name="Name" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 0020) required -->
+			<element name="ID" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 0030) required -->
+			<element name="BirthDate" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 0032) required -->
+			<element name="BirthTime" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 0040) required -->
+			<element name="Sex" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1000) unlimited -->
+			<element name="OtherPatientID" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1001) unlimited -->
+			<element name="OtherPatientName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1010) -->
+			<element name="Age" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1020) -->
+			<element name="Size" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1030) -->
+			<element name="Weight" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 1040) -->
+			<element name="Address" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2000) unlimited -->
+			<element name="MedicalAlert" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2110) unlimited -->
+			<element name="Allergy" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0038, 0050) -->
+			<element name="SpecialNeeds" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2100) -->
+			<element name="PregnancyStatus" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0038, 0500) -->
+			<element name="State" type="dicom:onlyString" minOccurs="0"/>
+			<!-- Following 3 elements using an instance of  mao:AddressEntry from the MEDICO Address Ontology as data type? -->
+			<!-- (0010, 2150) -->
+			<element name="CountryOfResidence" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2152) -->
+			<element name="RegionOfResidence" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2154) unlimited -->
+			<element name="TelephoneNumber" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2160) -->
+			<element name="EthnicGroup" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 2180) -->
+			<element name="Occupation" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 21A0) -->
+			<element name="SmokingStatus" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 21D0) -->
+			<element name="LastMenstrualDate" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 21B0) -->
+			<element name="AdditionalPatientHistory" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 21F0) -->
+			<element name="ReligiousPreference" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0010, 4000) -->
+			<element name="PatientComments" type="dicom:onlyString" minOccurs="0"/>
+			<element name="Study" type="dicom:StudyType" minOccurs="0" maxOccurs="unbounded"/>
+			<!--- Original structure of the Patient Module in the DICOM standard 
+      <element name="Relationship" type="dicom:PatientRelationshipType" />
+      <element name="Identification" type="dicom:PatientIdentificationType" />
+      <element name="Demographic" type="dicom:PatientDemographicType" />
+      <element name="Medical" type="dicom:PatientMedicalType" /> -->
+		</sequence>
+	</complexType>
+	<!--- Study Module -->
+	<complexType name="StudyType">
+		<sequence>
+			<!-- (0008, 0018) -->
+			<element name="SOPInstanceUID" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0020) -->
+			<element name="StudyDate" type="dicom:onlyString" minOccurs="0"/>
+			<!-- Change of Study Time's datatype into DA? (MedicomDicomOntology) -->
+			<!-- (0008, 0030) -->
+			<element name="StudyTime" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1030) -->
+			<element name="StudyDescription" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1032) -->
+			<element name="ProcedureCodeSequence" type="dicom:ProcedureCodeSequenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="Series" type="dicom:SeriesType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<!--- dicom:ProcedureCodeSequenceMacro -->
+	<complexType name="ProcedureCodeSequenceType">
+		<sequence>
+			<!-- (0008, 0100) required -->
+			<element name="CodeValue" type="dicom:onlyString"/>
+			<!-- (0008, 0102) required -->
+			<element name="CodeSchemeDesignator" type="dicom:onlyString"/>
+			<!-- (0008, 0103) -->
+			<element name="CodingSchemeVersion" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0104) required -->
+			<element name="CodeMeaning" type="dicom:onlyString"/>
+			<!-- (0008, 010F) -->
+			<element name="ContextIdentifier" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0105) required if CodeMeaning is set -->
+			<element name="MappingRessource" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0106) required if CodeMeaning is set -->
+			<element name="ContextGroupVersion" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 010B) -->
+			<element name="ContextGroupExtensionFlag" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0107 required if Flag before is yes) -->
+			<element name="ContextGroupLocalVersion" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 010D) required if Flag before is yes) -->
+			<element name="ContextGroupExtensionCreatorUID" type="dicom:onlyString" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<!--- Series Module -->
+	<complexType name="SeriesType">
+		<sequence>
+			<!-- (0008, 0021) -->
+			<element name="SeriesDate" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0031) -->
+			<element name="SeriesTime" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0060) -->
+			<element name="Modality" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1050) -->
+			<element name="PerformingPhysiciansName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 103E) -->
+			<element name="SeriesDescription" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0070) -->
+			<element name="Manufacturer" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0080) -->
+			<element name="InstitutionName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1040) -->
+			<element name="InstitutionalDepartmentName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 0015) -->
+			<element name="BodyPartExamined" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 0050) -->
+			<element name="SliceThickness" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 0060) -->
+			<element name="KVP" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 0090) -->
+			<element name="DataCollectionDiameter" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1000) -->
+			<element name="DeviceSerialNumber" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1020) -->
+			<element name="SoftwareVersion" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1030) -->
+			<element name="ProtocolName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1100) -->
+			<element name="ReconstructionDiameter" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1110) -->
+			<element name="DistanceSourceToDetector" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1111) -->
+			<element name="DistanceSourceToPatient" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1120) -->
+			<element name="GantryDetectorTilt" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1130) -->
+			<element name="TableHeight" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1140) -->
+			<element name="RotationDirection" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1150) -->
+			<element name="ExposureTime" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1151) -->
+			<element name="X-rayTubeCurrent" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1152) -->
+			<element name="Exposure" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1160) -->
+			<element name="FilterType" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1170) -->
+			<element name="GeneratorPower" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1190) -->
+			<element name="FocalSpot" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1200) -->
+			<element name="DateOfLastCalibration" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1201) -->
+			<element name="TimeOfLastCalibration" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 1210) -->
+			<element name="ConvolutionKernel" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0018, 5100) -->
+			<element name="PatientPosition" type="dicom:onlyString" minOccurs="0"/>
+			<element name="Image" type="dicom:ImageType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<!--- Image Module -->
+	<complexType name="ImageType">
+		<sequence>
+			<!-- (0008, 0022) -->
+			<element name="AcquisitionDate" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0032) -->
+			<element name="AcquisitionTime" type="dicom:onlyString" minOccurs="0"/>
+			<element name="ImageDate" type="dicom:onlyString" minOccurs="0"/>
+			<element name="ImageTime" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0090) -->
+			<element name="ReferringPhysiciansName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0092) -->
+			<element name="ReferringPhysiciansAddress" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 0094) -->
+			<element name="ReferringPhysiciansTelephoneNumber" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1010) -->
+			<element name="StationName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1070) -->
+			<element name="OperatorsName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1080) -->
+			<element name="AdmittingDiagnosesDescription" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 1090) -->
+			<element name="ManufacturersModelName" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0008, 2111) -->
+			<element name="DerivationDescription" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0002) -->
+			<element name="SamplesPerPixel" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0004) -->
+			<element name="PhotometricInterpretation" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0010) -->
+			<element name="Rows" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0011) -->
+			<element name="Columns" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0030) limited to 2?-->
+			<element name="PixelSpacing" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0100) -->
+			<element name="BitsAllocated" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0101) -->
+			<element name="BitsStored" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0102) -->
+			<element name="HighBit" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0103) -->
+			<element name="PixelRepresentation" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0150) -->
+			<element name="WindowCenter" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0151) -->
+			<element name="WindowWidth" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0152) -->
+			<element name="RescaleIntercept" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0153) -->
+			<element name="RescaleSlope" type="dicom:onlyString" minOccurs="0"/>
+			<!-- (0028, 0155) -->
+			<element name="WindowsCenterAndWidthExplanation" type="dicom:onlyString" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<!--- Required Patient's Relationship Module 
+  <complexType name="PatientRelationshipType">
+    <sequence>
+      (0008, 1110) required 
+      <element maxOccurs="unbounded" name="ReferencedStudySequence" type="dicom:ImageSOPInstanceReferenceMacro" />
+      (0008, 1125) required 
+      <element maxOccurs="unbounded" name="ReferencedVisitSequence" type="dicom:ImageSOPInstanceReferenceMacro" />
+      (0038, 0004) required 
+      <element maxOccurs="unbounded" name="ReferencedPatientAliasSequence" type="dicom:ImageSOPInstanceReferenceMacro" />
+    </sequence>
+  </complexType> -->
+	<!--- Required Image SOP Instance Reference Macro 
+  <complexType name="ImageSOPInstanceReferenceMacro">
+    <choice>
+      <(0008, 1160) 
+      <element maxOccurs="unbounded" name="ReferencedFrameNumber" type="dicom:IS" />
+      (0062, 000B) 
+      <element maxOccurs="unbounded" name="ReferencedSegmentNumber" type="dicom:US" />
+    </choice>
+  </complexType> -->
+	<!--- Patient's Identification Module 
+  <complexType name="PatientIdentificationType">
+    <sequence>
+      (0010, 0010) required 
+      <element name="Name" type="dicom:PN" />
+      (0010, 0020) required 
+      <element name="ID" type="dicom:LO" />
+      (0010, 0021) required 
+      <element name="IssuerOfPatientID" type="dicom:LO" />
+      (0010, 1000) unlimited 
+      <element minOccurs="0" maxOccurs="unbounded" name="OtherPatientID" type="dicom:LO" />
+      (0010, 1002) 
+      <element minOccurs="0" name="OtherPatientIDSequence" type="dicom:OtherPatientIDSequenceType" />
+      (0010, 1001) unlimited 
+      <element minOccurs="0" maxOccurs="unbounded" name="OtherPatientName" type="dicom:PN" />
+      (0010, 1005)
+      <element minOccurs="0" name="BirthName" type="dicom:PN" />
+      (0010, 1060) 
+      <element minOccurs="0" name="MothersBirthName" type="dicom:PN" />
+      (0010, 1090) 
+      <element minOccurs="0" name="MedicalRecordLocator" type="dicom:LO" />
+    </sequence>
+  </complexType> -->
+	<!--- dicom:OtherPatientIDSequenceType 
+  <complexType name="dicom:OtherPatientIDSequenceType">
+    <sequence>
+      (0010, 0020) 
+      <element minOccurs="0" name="PatientID" type="dicom:LO" />
+      (0010, 0021) 
+      <element minOccurs="0" name="IssuerOfPatientID" type="dicom:LO" />
+      (0010, 0022) 
+      <element minOccurs="0" name="TypeOfPatientID" type="dicom:CS" />
+    </sequence>
+  </complexType> -->
+	<!--- Patient's Demographic Module 
+  <complexType name="PatientDemographicType">
+    <sequence>
+      (0010, 1010) 
+      <element minOccurs="0" name="Age" type="dicom:AS" />
+      (0010, 2180)
+      <element minOccurs="0" name="Occupation" type="dicom:SH" />
+      (0040, 3001)
+      <element minOccurs="0" name="ConfidentialityConstraint" type="dicom:LO" />
+      (0010, 0030) 
+      <element minOccurs="0" name="BirthDate" type="dicom:DA" />
+      (0010, 0032) 
+      <element minOccurs="0" name="BirthTime" type="dicom:TM" />
+      (0010, 0040) required 
+      <element name="Sex">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="male" />
+            <enumeration value="female" />
+            <enumeration value="other" />
+          </restriction>
+        </simpleType>
+      </element>
+      (0010, 0050) 
+      <element minOccurs="0" name="InsurancePlanCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0010, 0101)
+      <element minOccurs="0" name="PrimaryLanguageCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0010, 0102)
+      <element minOccurs="0" name="PrimaryLanguageCodeModifierSequence" type="dicom:CodeSequenceMacro" />
+      (0010, 1005) 
+      <element minOccurs="0" name="BirthName" type="dicom:PN" />
+      (0010, 1020) 
+      <element minOccurs="0" name="Size" type="dicom:DS" />
+      (0010, 1030)
+      <element minOccurs="0" name="Weight" type="dicom:DS" />
+      (0010, 1040) 
+      <element minOccurs="0" name="Address" type="dicom:LO" />
+      (0010, 1080) 
+      <element minOccurs="0" name="MilitaryRank" type="dicom:LO" />
+      (0010, 1081)
+      <element minOccurs="0" name="BranchOfService" type="dicom:LO" />
+      (0010, 2150)
+      <element minOccurs="0" name="CountryOfResidence" type="dicom:LO" />
+      (0010, 2152) 
+      <element minOccurs="0" name="RegionOfResidence" type="dicom:LO" />
+      (0010, 2154) unlimited 
+      <element minOccurs="0" name="TelephoneNumber" type="dicom:SH" />
+      (0010, 2160) 
+      <element minOccurs="0" name="EthnicGroup" type="dicom:SH" />
+      (0010, 21F0)
+      <element minOccurs="0" name="ReligiousPreference" type="dicom:LO" />
+      (0010, 4000) 
+      <element minOccurs="0" name="PatientComment" type="dicom:LT" />
+      (0010, 2297) 
+      <element minOccurs="0" name="ResponsiblePerson" type="dicom:PN" />
+      (0010, 2298)
+      <element minOccurs="0" name="ResponsiblePersonRole" type="dicom:CS" />
+      (0010, 2299) 
+      <element minOccurs="0" name="ResponsibleOrganization" type="dicom:LO" />
+      (0010, 2201) 
+      <element minOccurs="0" name="SpeciesDescription" type="dicom:LO" />
+      (0010, 2202) 
+      <element minOccurs="0" name="SpeciesCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0010, 2292) 
+      <element minOccurs="0" name="BreedDescription" type="dicom:LO" />
+      (0010, 2293) 
+      <element minOccurs="0" name="BreedCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0010, 2294) 
+      <element minOccurs="0" name="BreedRegistrationSequence" type="dicom:SQ" />
+      (0010, 2295)
+      <element minOccurs="0" name="BreedRegistrationNumber" type="dicom:LO" />
+      (0010, 2296) 
+      <element minOccurs="0" name="BreedRegistryCodeSequence" type="dicom:BreedRegistryCodeSequenceType" />
+    </sequence>
+  </complexType> -->
+	<!--- dicom:CodeSequenceMacro 
+  <complexType name="CodeSequenceMacro">
+    <sequence>
+      (0008, 0100) required
+      <element name="CodeValue" type="dicom:SH" />
+      (0008, 0102) required 
+      <element name="CodeSchemeDesignator" type="dicom:SH" />
+      (0008, 0103) 
+      <element minOccurs="0" name="CodingSchemeVersion" type="dicom:SH" />
+      (0008, 0104) required 
+      <element name="CodeMeaning" type="dicom:LO" />
+      (0008, 010F)
+      <element minOccurs="0" name="ContextIdentifier" type="dicom:CS" />
+      (0008, 0105) required if CodeMeaning is set
+      <element minOccurs="0" name="MappingRessource" type="dicom:CSO" />
+      (0008, 0106) required if CodeMeaning is set
+      <element minOccurs="0" name="ContextGroupVersion" type="dicom:DT" />
+      (0008, 010B)
+      <element minOccurs="0" name="ContextGroupExtensionFlag">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="yes" />
+            <enumeration value="no" />
+          </restriction>
+        </simpleType>
+      </element>
+      (0008, 0107 required if Flag before is yes) 
+      <element minOccurs="0" name="ContextGroupLocalVersion" type="dicom:DT" />
+      (0008, 010D) required if Flag before is yes)
+      <element minOccurs="0" name="ContextGroupExtensionCreatorUID" type="dicom:UI" />
+    </sequence>
+  </complexType> -->
+	<!--- dicom:BreedRegistryCodeSequenceType
+  <complexType name="BreedRegistryCodeSequenceType">
+    <sequence>
+      (0010, 2295)
+      <element name="RegistartaionNumber" type="dicom:LO" />
+      <(0010, 2296) 
+      <element name="RegistryCodeSequence" type="dicom:CodeSequenceMacro" />
+    </sequence>
+  </complexType> -->
+	<!--- Patient's Medical Module 
+  <complexType name="PatientMedicalType">
+    <sequence>
+      (0010, 2000) unlimited
+      <element minOccurs="0" maxOccurs="unbounded" name="MedicalAlert" type="dicom:LO" />
+      (0010, 2110) unlimited 
+      <element minOccurs="0" maxOccurs="unbounded" name="Allergy" type="dicom:LO" />
+      (0010, 21A0)
+      <element minOccurs="0" name="SmokingStatus">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="yes" />
+            <enumeration value="no" />
+            <enumeration value="unknown" />
+          </restriction>
+        </simpleType>
+      </element>
+      (0010, 21B0) 
+      <element minOccurs="0" name="AdditionalPatientHistory" type="dicom:LT" />
+      (0010, 21C0) 
+      <element minOccurs="0" name="PregnancyStatus">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="not pregnant" />
+            <enumeration value="possibly pregnant" />
+            <enumeration value="definitely pregnant" />
+            <enumeration value="unknown" />
+          </restriction>
+        </simpleType>
+      </element>
+      (0010, 21D0)
+      <element minOccurs="0" name="LastMenstrualDate" type="dicom:DA" />
+      (0010, 2203) 
+      <element minOccurs="0" name="SexNeutered">
+        <simpleType>
+          <restriction base="string">
+            <enumeration value="altered" />
+            <enumeration value="unaltered" />
+          </restriction>
+        </simpleType>
+      </element>
+      (0038, 0050)
+      <element minOccurs="0" name="SpecialNeeds" type="dicom:LO" />
+      (0038, 0500) 
+      <element minOccurs="0" name="State" type="dicom:LO" />
+      (0038, 0100)
+      <element minOccurs="0" name="PertinentDocumentsSequence" type="PertinentDocumentSequenceType" />
+      (0040, A170) 
+      <element minOccurs="0" name="PurposeOfReferenceCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0038, 0502) 
+      <element minOccurs="0" name="ClinicalTrialParticipationSequence" type="dicom:ClinicalTrialParticipationSequenceType" />
+    </sequence>
+  </complexType> -->
+	<!--- dicom:PertinentDocumentSequenceType
+  <complexType name="PertinentDocumentSequenceType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="ImageSOPInstance" type="dicom:ImageSOPInstanceReferenceMacro" />
+      (0040, A0170) unlimited 
+      <element minOccurs="0" maxOccurs="unbounded" name="PurposeOfReferenceCodeSequence" type="dicom:CodeSequenceMacro" />
+      (0042, 0010) unlimited 
+      <element minOccurs="0" maxOccurs="unbounded" name="DocumentTitle" type="dicom:ST" />
+    </sequence>
+  </complexType> -->
+	<!--- dicom:ClinicalTrialParticipationSequenceType
+  <complexType name="ClinicalTrialParticipationSequenceType">
+    <sequence>
+      (0012, 0010) 
+      <element minOccurs="0" name="SponsorName" type="dicom:LO" />
+       (0012, 0020) 
+      <element minOccurs="0" name="ProtocolID" type="dicom:LO" />
+      (0012, 0021) 
+      <element minOccurs="0" name="ProtocolName" type="dicom:LO" />
+      (0012, 0030)
+      <element minOccurs="0" name="SiteID" type="dicom:LO" />
+      (0012, 0031) 
+      <element minOccurs="0" name="SiteName" type="dicom:LO" />
+      (0012, 0040)
+      <element minOccurs="0" name="SubjectID" type="dicom:LO" />
+      (0012, 0042)
+      <element minOccurs="0" name="SubjectReadingID" type="dicom:LO" />
+    </sequence>
+  </complexType> -->
+	<!--- Optional Meta Elements -->
+	<!--- This section specifies the File Meta Elements needed to support the formatting of the File Meta
+	Information of the DICOM File Format 
+  <complexType name="FileMetaElementsType">
+    <sequence>
+      (0002, 0000)
+      <element minOccurs="0" name="FileMetaInformationGroupLength" type="dicom:UL" /> 
+      (0002, 0001) 
+      <element minOccurs="0" name="MetaFileInformationVersion" type="dicom:OB" /> 
+      (0002, 0002) 
+      <element minOccurs="0" name="MediaStorageSOPClassUID" type="dicom:UI" />
+      (0002, 0003)
+      <element minOccurs="0" name="MediaStorageSOPInstanceUID" type="dicom:UI" />
+      (0002, 0010) 
+      <element minOccurs="0" name="TransferSyntaxUID" type="dicom:UI" />
+      (0002, 0012) 
+      <element minOccurs="0" name="ImplementationClassUID" type="dicom:UI" />
+      (0002, 0013) 
+      <element minOccurs="0" name="ImplementationVersionName" type="dicom:SH" />
+      (0002, 0016) 
+      <element minOccurs="0" name="SourceApplicationEntityTitle" type="dicom:AE" />
+      (0002, 0100)
+      <element minOccurs="0" name="PrivateInformationCreatorUID" type="dicom:UI" />
+      (0002, 0102)
+      <element minOccurs="0" name="PrivateInformation" type="dicom:OB" /> 
+    </sequence>
+  </complexType> -->
+	<!--- Optional Directory Structuring Elements 
+  <complexType name="DirectoryStructuringElementsType">
+    <sequence>
+      (0004, 1130)
+      <element minOccurs="0" name="FileSetID" type="dicom:CS" />
+      (0004, 1141)
+      <element minOccurs="0" maxOccurs="8" name="FileSetDescriptorFileID" type="dicom:CS" />
+      (0004, 1142)
+      <element minOccurs="0" name="SpecificCharacterSetOfFileSetDescriptorFile" type="dicom:CS" />
+      (0004, 1200)
+      <element minOccurs="0" name="OffsetOfFirstDirectoryRecord" type="dicom:UL" />
+      (0004, 1202)
+      <element minOccurs="0" name="OffsetOfLastDirectoryRecord" type="dicom:UL" />
+      (0004, 1220)
+      <element minOccurs="0" name="DirectoryRecordSequence" type="dicom:SQ" />
+      (0004, 1400)
+      <element minOccurs="0" name="OffsetOfNextDirectoryRecord" type="dicom:UL" />
+      (0004, 1410) 
+      <element minOccurs="0" name="RecordInUseFlag" type="dicom:US" />
+      (0004, 1420) 
+      <element minOccurs="0" name="OffsetOfReferencedLowerLevelDirectoryEntity" type="dicom:UL" />
+       (0004, 1430) 
+      <element minOccurs="0" name="DirectoryRecordType" type="dicom:CS" />
+      (0004, 1432) 
+      <element minOccurs="0" name="PrivateRecordUID" type="dicom:UI" />
+      (0004, 1500) 
+      <element minOccurs="0" maxOccurs="8" name="ReferencedFileID" type="dicom:CS" />
+      (0004, 1504) 
+      <element minOccurs="0" name="MRDRDirectoryRecordOffset" type="dicom:UL" />
+      (0004, 1510) 
+      <element minOccurs="0" name="ReferencedSOPClassUIDInFile" type="dicom:UI" />
+      (0004, 1511) 
+      <element minOccurs="0" name="ReferencedSOPInstanceUIDInFile" type="dicom:UI" />
+      (0004, 1512) 
+      <element minOccurs="0" name="ReferencedTransferSyntaxUIDInFile" type="dicom:UI" />
+      (0004, 151A) 
+      <element minOccurs="0" maxOccurs="unbounded" name="ReferencedRelatedGeneralSOPClassUIDInFile" type="dicom:UI" />
+      (0004, 1600) 
+      <element minOccurs="0" name="NumberOfReferences" type="dicom:UL" />
+    </sequence>
+  </complexType> -->
+	<!-- Simple data types -->
+	<!-- Only use Strings anymore -->
+	<simpleType name="onlyString">
+		<restriction base="string"/>
+	</simpleType>
+	<!--FOLLOWING PART LOOKS LIKE REMAIN UNUSED -->
+	<!-- Application Entity -->
+	<simpleType name="AE">
+		<restriction base="string">
+			<maxLength value="16"/>
+		</restriction>
+	</simpleType>
+	<!-- Age String -->
+	<simpleType name="AS">
+		<restriction base="string">
+			<length value="4"/>
+			<pattern value="[0-9][0-9][0-9](D|W|M|Y)"/>
+		</restriction>
+	</simpleType>
+	<!-- Coded String -->
+	<simpleType name="CS">
+		<restriction base="token">
+			<maxLength value="16"/>
+		</restriction>
+	</simpleType>
+	<!-- Date -->
+	<simpleType name="DA">
+		<restriction base="date"/>
+	</simpleType>
+	<!-- DecimalString -->
+	<simpleType name="DS">
+		<restriction base="decimal"/>
+	</simpleType>
+	<!-- DateTime -->
+	<simpleType name="DT">
+		<restriction base="dateTime"/>
+	</simpleType>
+	<!-- FloatingPoint Single -->
+	<simpleType name="FL">
+		<restriction base="decimal"/>
+	</simpleType>
+	<!-- FloatingPoint Double -->
+	<simpleType name="FD">
+		<restriction base="decimal"/>
+	</simpleType>
+	<!-- Integer String -->
+	<simpleType name="IS">
+		<restriction base="integer"/>
+	</simpleType>
+	<!-- Long string -->
+	<simpleType name="LO">
+		<restriction base="string">
+			<maxLength value="64"/>
+		</restriction>
+	</simpleType>
+	<!-- Long text -->
+	<simpleType name="LT">
+		<restriction base="string">
+			<maxLength value="10240"/>
+		</restriction>
+	</simpleType>
+	<!-- Other Byte String -->
+	<simpleType name="OB">
+		<restriction base="string"/>
+	</simpleType>
+	<!-- Other Float String -->
+	<simpleType name="OF">
+		<restriction base="string"/>
+	</simpleType>
+	<!-- Other Word String -->
+	<simpleType name="OW">
+		<restriction base="string"/>
+	</simpleType>
+	<!-- Person Name -->
+	<simpleType name="PN">
+		<restriction base="token">
+			<maxLength value="64"/>
+		</restriction>
+	</simpleType>
+	<!-- dicom:SHort String -->
+	<simpleType name="SH">
+		<restriction base="string">
+			<maxLength value="16"/>
+		</restriction>
+	</simpleType>
+	<!-- Signed Long -->
+	<simpleType name="SL">
+		<restriction base="long"/>
+	</simpleType>
+	<!-- Signed dicom:SHort -->
+	<simpleType name="SS">
+		<restriction base="short"/>
+	</simpleType>
+	<!-- dicom:SHort Text -->
+	<simpleType name="ST">
+		<restriction base="string">
+			<maxLength value="1024"/>
+		</restriction>
+	</simpleType>
+	<!-- Time -->
+	<simpleType name="TM">
+		<restriction base="time"/>
+	</simpleType>
+	<!-- dicom:UId -->
+	<simpleType name="UI">
+		<restriction base="token">
+			<maxLength value="64"/>
+			<pattern value="([0-9]+\.)*[0-9]+"/>
+		</restriction>
+	</simpleType>
+	<!-- Unsigned dicom:SHort -->
+	<simpleType name="US">
+		<restriction base="unsignedShort"/>
+	</simpleType>
+	<!-- Unsigned Long -->
+	<simpleType name="UL">
+		<restriction base="unsignedLong"/>
+	</simpleType>
+	<!-- Unknown -->
+	<simpleType name="UN">
+		<restriction base="string"/>
+	</simpleType>
+	<!-- Unlimited Text -->
+	<simpleType name="UT">
+		<restriction base="string"/>
+	</simpleType>
+	<!-- SQ -->
+	<simpleType name="SQ">
+		<restriction base="string"/>
+	</simpleType>
+</schema>

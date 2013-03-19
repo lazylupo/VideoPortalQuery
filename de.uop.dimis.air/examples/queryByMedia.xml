@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="ID_e2794b9" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:Input immediateResponse="true">
+			<mpqf:QueryCondition>
+				<mpqf:Condition xsi:type="mpqf:QueryByMedia" matchType="similar">
+					<mpqf:MediaResource resourceID="res01">
+						<mpqf:MediaResource>
+							<mpqf:MediaUri>http://any.uri.com</mpqf:MediaUri>
+						</mpqf:MediaResource>
+					</mpqf:MediaResource>
+				</mpqf:Condition>
+			</mpqf:QueryCondition>
+		</mpqf:Input>
+	</mpqf:Query>
+</mpqf:MpegQuery>

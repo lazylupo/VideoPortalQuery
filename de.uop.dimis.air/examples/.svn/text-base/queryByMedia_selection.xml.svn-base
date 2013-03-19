@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 ..\metadataSchemas\mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:Input>
+			<mpqf:QueryCondition>
+				<mpqf:Condition xsi:type="mpqf:QueryByMedia">
+					<mpqf:MediaResource resourceID="ID_1">
+						<mpqf:MediaResource>
+							<mpqf:MediaUri>lalala</mpqf:MediaUri>
+						</mpqf:MediaResource>
+					</mpqf:MediaResource>
+				</mpqf:Condition>
+			</mpqf:QueryCondition>
+			<mpqf:ServiceSelection>
+				<mpqf:ServiceID>http://localhost:8080/axis2/services/TestDBs/db3</mpqf:ServiceID>
+			</mpqf:ServiceSelection>
+		</mpqf:Input>
+	</mpqf:Query>
+</mpqf:MpegQuery>

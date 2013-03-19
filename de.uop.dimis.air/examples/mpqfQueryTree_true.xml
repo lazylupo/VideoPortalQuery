@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="001" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:Input>
+			<mpqf:QueryCondition>
+				<mpqf:Condition xsi:type="mpqf:AND">
+					<mpqf:Condition xsi:type="mpqf:OR">
+						<mpqf:Condition xsi:type="mpqf:QueryByFreeText">
+							<mpqf:FreeText>Tolle Testquery</mpqf:FreeText>
+						</mpqf:Condition>
+						<mpqf:Condition xsi:type="mpqf:QueryByMedia">
+							<mpqf:MediaResource resourceID="ID_5000">
+								<mpqf:MediaResource>
+									<mpqf:MediaUri>http://tolle.uri</mpqf:MediaUri>
+								</mpqf:MediaResource>
+							</mpqf:MediaResource>
+						</mpqf:Condition>
+					</mpqf:Condition>
+					<mpqf:Condition xsi:type="mpqf:QueryByDescription">
+						<mpqf:SPARQL>Hier eine tolle SPARQL query...</mpqf:SPARQL>
+					</mpqf:Condition>
+				</mpqf:Condition>
+			</mpqf:QueryCondition>
+		</mpqf:Input>
+	</mpqf:Query>
+</mpqf:MpegQuery>

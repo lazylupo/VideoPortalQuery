@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:mpqftc="urn:mpeg:mpqf:transportContainer:schema:2008" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:mpeg:mpqf:transportContainer:schema:2008" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<element name="TransportContainer" type="mpqftc:TransportContainerType" />
+	<complexType name="TransportContainerType">
+		<choice>
+			<element name="QueryByDescription">
+				<complexType>
+					<sequence>
+						<element name="entry" maxOccurs="unbounded">
+							<complexType>
+								<sequence>
+									<element name="key" maxOccurs="1" type="string" />
+									<element name="value" maxOccurs="1" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+					<attribute name="namespace" type="string" />
+					<attribute name="namespaceLocation" type="string" />
+					<attribute name="matchType" type="string" />
+				</complexType>
+			</element>
+			<element name="QueryByDescriptionSingle">
+				<complexType>
+					<sequence>
+						<element name="entry" maxOccurs="unbounded">
+							<complexType>
+								<sequence>
+									<element name="key" maxOccurs="1" type="string" />
+									<element name="value" maxOccurs="1" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+					<attribute name="namespace" type="string" />
+					<attribute name="namespaceLocation" type="string" />
+					<attribute name="matchType" type="string" />
+					<attribute name="boolenExpression" type="string" />
+				</complexType>
+			</element>
+			<element name="QueryByMedia">
+				<complexType>
+					<choice>
+						<element name="rawData" type="string" maxOccurs="1" />
+						<element name="href" type="string" maxOccurs="1" />
+					</choice>
+					<attribute name="matchType" type="string" />
+				</complexType>
+			</element>
+		</choice>
+	</complexType>
+</schema>

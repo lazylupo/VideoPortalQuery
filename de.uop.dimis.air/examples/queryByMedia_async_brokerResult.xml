@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MpegQuery xmlns="urn:mpeg:mpqf:schema:2008" xmlns:ns2="urn:DICOM:schema:2009" mpqfID="ID_e2794b9">
+	<Management>
+		<Output>
+			<SystemMessage>
+				<Status>
+					<Code>1</Code>
+					<Description>Query was successful</Description>
+				</Status>
+			</SystemMessage>
+		</Output>
+	</Management>
+</MpegQuery>

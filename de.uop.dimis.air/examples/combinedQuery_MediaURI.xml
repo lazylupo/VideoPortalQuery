@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:Input immediateResponse="true">
+		<mpqf:QueryCondition>
+		<mpqf:TargetMediaType>image/jpeg</mpqf:TargetMediaType>
+		
+			<mpqf:Condition xsi:type="mpqf:OR" preferenceValue="1" >
+			
+				<mpqf:Condition xsi:type="mpqf:QueryByMedia" matchType="similar" preferenceValue="1">
+					<mpqf:MediaResource resourceID="R1">
+						<mpqf:MediaResource>
+							<mpqf:MediaUri>checkmeout</mpqf:MediaUri>
+						</mpqf:MediaResource>
+					</mpqf:MediaResource>
+				</mpqf:Condition>
+				
+				<mpqf:Condition xsi:type="mpqf:QueryByDescription">
+				<mpqf:DescriptionResource resourceID="R2" xsi:type="mpqf:DescriptionResourceType">
+					<mpqf:AnyDescription xmlns:mpeg7="urn:mpeg:mpeg7:schema:2004" xsi:schemaLocation="urn:mpeg:mpeg7:schema:2004 M7v2schema.xsd"> 
+							<mpeg7:Mpeg7> 
+								<mpeg7:DescriptionUnit xsi:type="mpeg7:CreationInformationType"> 
+									<mpeg7:Creation> 
+										<mpeg7:Title>Miracle Query Format</mpeg7:Title> 
+									</mpeg7:Creation> 
+								</mpeg7:DescriptionUnit> 
+							</mpeg7:Mpeg7> 
+						</mpqf:AnyDescription>
+				</mpqf:DescriptionResource>
+				</mpqf:Condition>	
+						
+			</mpqf:Condition>			
+			
+		</mpqf:QueryCondition>		
+		</mpqf:Input>
+	</mpqf:Query>
+</mpqf:MpegQuery>

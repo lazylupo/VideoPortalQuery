@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="001" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:FetchResult queryID=""></mpqf:FetchResult>
+	</mpqf:Query>
+</mpqf:MpegQuery>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mpqf:MpegQuery mpqfID="020" xmlns:mpqf="urn:mpeg:mpqf:schema:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:mpqf:schema:2008 mpqf_semantic_enhancement.xsd">
+	<mpqf:Query>
+		<mpqf:Output>
+			<mpqf:GlobalComment>This is the message from the responder</mpqf:GlobalComment> 
+				<mpqf:ResultItem recordNumber="001" rank="1" confidence="1.0"> 
+					<mpqf:MediaResource>http://www.mpeg7qf/db/video/19701221.mpg</mpqf:MediaResource> 
+				</mpqf:ResultItem> 
+				<mpqf:ResultItem recordNumber="002" rank="2" confidence="0.99"> 
+					<mpqf:MediaResource>http://www.mpeg7qf/db/video/19690117.mpg</mpqf:MediaResource> 
+				</mpqf:ResultItem> 
+				<mpqf:ResultItem recordNumber="003" rank="2" confidence="0.98"> 
+					<mpqf:MediaResource>http://www.mpeg7qf/db/video/19980212.mpg</mpqf:MediaResource> 
+				</mpqf:ResultItem> 
+				<mpqf:ResultItem recordNumber="004" rank="3" confidence="0.87"> 
+					<mpqf:MediaResource>http://www.mpeg7qf/db/video/19990414.mpg</mpqf:MediaResource> 
+				</mpqf:ResultItem> 
+				<mpqf:ResultItem recordNumber="005" rank="3" confidence="0.85">
+					<mpqf:MediaResource>http://www.mpeg7qf/db/video/20071119.mpg</mpqf:MediaResource> 
+				</mpqf:ResultItem> 
+				<mpqf:SystemMessage> 
+					<mpqf:Status> 
+						<mpqf:Code>001</mpqf:Code> 
+						<mpqf:Description>Query was successful</mpqf:Description> 
+					</mpqf:Status> 
+				</mpqf:SystemMessage>
+		</mpqf:Output>
+	</mpqf:Query>
+</mpqf:MpegQuery>

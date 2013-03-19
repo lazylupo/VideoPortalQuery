@@ -1,0 +1,121 @@
+annotation.processing.enabled=true
+annotation.processing.enabled.in.editor=false
+annotation.processing.processor.options=
+annotation.processing.processors.list=
+annotation.processing.run.all.processors=true
+annotation.processing.source.output=${build.generated.sources.dir}/ap-source-output
+auxiliary.org-netbeans-modules-projectimport-eclipse-core.key=src=src;file=libs/BaseX6.jar;file=libs/commons-io-1.4.jar;file=libs/commons-lang-2.3.jar;file=libs/commons-logging-1.1.1.jar;file=libs/de-uop-dimis-jpsearch-tr-1.0.jar;file=libs/httpclient-4.1.jar;file=libs/httpclient-cache-4.1.jar;file=libs/httpcore-4.1.jar;file=libs/httpmime-4.1.jar;file=libs/jaxb-api-2.1.jar;file=libs/jaxb-impl-2.1.7.jar;file=libs/jaxb-xjc-2.1.7.jar;file=libs/jaxen-1.1.1.jar;file=libs/jaxen.jar;file=libs/jdom.jar;file=libs/jibx-bind-1.2.1.jar;file=libs/jibx-run-1.2.1.jar;file=libs/log4j-1.2.15.jar;file=libs/xalan-2.7.0.jar;file=libs/xml-apis-1.3.02.jar;file=libs/xml-resolver-1.2.jar;file=libs/xmlbeans-2.3.0.jar;file=libs/XmlSchema-1.4.3.jar;output=bin;
+auxiliary.org-netbeans-modules-projectimport-eclipse-core.project=.
+auxiliary.org-netbeans-modules-projectimport-eclipse-core.timestamp=1306397558561
+auxiliary.org-netbeans-modules-projectimport-eclipse-core.workspace=..
+build.classes.dir=${build.dir}/classes
+build.classes.excludes=**/*.java,**/*.form
+# This directory is removed when the project is cleaned:
+build.dir=build
+build.generated.dir=${build.dir}/generated
+build.generated.sources.dir=${build.dir}/generated-sources
+# Only compile against the classpath explicitly listed here:
+build.sysclasspath=ignore
+build.test.classes.dir=${build.dir}/test/classes
+build.test.results.dir=${build.dir}/test/results
+# Uncomment to specify the preferred debugger connection transport:
+#debug.transport=dt_socket
+debug.classpath=\
+    ${run.classpath}
+debug.test.classpath=\
+    ${run.test.classpath}
+# This directory is removed when the project is cleaned:
+dist.dir=dist
+dist.jar=${dist.dir}/de.uop.dimis.air.jar
+dist.javadoc.dir=${dist.dir}/javadoc
+excludes=de/medico/queryBroker/mpqf/validator/,de/medico/queryBroker/mpqfManagement/testing/GenericQuery.java,de/medico/queryBroker/mpqfManagement/testing/QueryCreator.java,de/medico/queryBroker/mpqfManagement/testing/TestCheck.java,de/medico/queryBroker/mpqfManagement/testing/TestDBs.java,de/medico/queryBroker/mpqfManagement/testing/TestDBSparql.java,de/medico/queryBroker/mpqfManagement/testing/TestMonitor.java,de/medico/queryBroker/mpqfManagement/testing/testCases/,de/medico/queryBroker/transportProtocoll/soap/QBBECommunication.java
+file.reference.BaseX6.jar=libs/BaseX6.jar
+file.reference.commons-io-1.4.jar=libs/commons-io-1.4.jar
+file.reference.commons-lang-2.3.jar=libs/commons-lang-2.3.jar
+file.reference.commons-logging-1.1.1.jar=libs/commons-logging-1.1.1.jar
+file.reference.de-uop-dimis-jpsearch-tr-1.0.jar=libs/de-uop-dimis-jpsearch-tr-1.0.jar
+file.reference.de.uop.dimis.air-src=src
+file.reference.httpclient-4.1.jar=libs/httpclient-4.1.jar
+file.reference.httpclient-cache-4.1.jar=libs/httpclient-cache-4.1.jar
+file.reference.httpcore-4.1.jar=libs/httpcore-4.1.jar
+file.reference.httpmime-4.1.jar=libs/httpmime-4.1.jar
+file.reference.jaxb-api-2.1.jar=libs/jaxb-api-2.1.jar
+file.reference.jaxb-impl-2.1.7.jar=libs/jaxb-impl-2.1.7.jar
+file.reference.jaxb-xjc-2.1.7.jar=libs/jaxb-xjc-2.1.7.jar
+file.reference.jaxen-1.1.1.jar=libs/jaxen-1.1.1.jar
+file.reference.jaxen.jar=libs/jaxen.jar
+file.reference.jdom.jar=libs/jdom.jar
+file.reference.jibx-bind-1.2.1.jar=libs/jibx-bind-1.2.1.jar
+file.reference.jibx-run-1.2.1.jar=libs/jibx-run-1.2.1.jar
+file.reference.log4j-1.2.15.jar=libs/log4j-1.2.15.jar
+file.reference.xalan-2.7.0.jar=libs/xalan-2.7.0.jar
+file.reference.xml-apis-1.3.02.jar=libs/xml-apis-1.3.02.jar
+file.reference.xml-resolver-1.2.jar=libs/xml-resolver-1.2.jar
+file.reference.xmlbeans-2.3.0.jar=libs/xmlbeans-2.3.0.jar
+file.reference.XmlSchema-1.4.3.jar=libs/XmlSchema-1.4.3.jar
+includes=**
+jar.compress=false
+javac.classpath=\
+    ${file.reference.BaseX6.jar}:\
+    ${file.reference.commons-io-1.4.jar}:\
+    ${file.reference.commons-lang-2.3.jar}:\
+    ${file.reference.commons-logging-1.1.1.jar}:\
+    ${file.reference.de-uop-dimis-jpsearch-tr-1.0.jar}:\
+    ${file.reference.httpclient-4.1.jar}:\
+    ${file.reference.httpclient-cache-4.1.jar}:\
+    ${file.reference.httpcore-4.1.jar}:\
+    ${file.reference.httpmime-4.1.jar}:\
+    ${file.reference.jaxb-api-2.1.jar}:\
+    ${file.reference.jaxb-impl-2.1.7.jar}:\
+    ${file.reference.jaxb-xjc-2.1.7.jar}:\
+    ${file.reference.jaxen-1.1.1.jar}:\
+    ${file.reference.jaxen.jar}:\
+    ${file.reference.jdom.jar}:\
+    ${file.reference.jibx-bind-1.2.1.jar}:\
+    ${file.reference.jibx-run-1.2.1.jar}:\
+    ${file.reference.log4j-1.2.15.jar}:\
+    ${file.reference.xalan-2.7.0.jar}:\
+    ${file.reference.xml-apis-1.3.02.jar}:\
+    ${file.reference.xml-resolver-1.2.jar}:\
+    ${file.reference.xmlbeans-2.3.0.jar}:\
+    ${file.reference.XmlSchema-1.4.3.jar}
+# Space-separated list of extra javac options
+javac.compilerargs=
+javac.deprecation=false
+javac.processorpath=\
+    ${javac.classpath}
+javac.source=1.6
+javac.target=1.6
+javac.test.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}:\
+    ${libs.junit.classpath}:\
+    ${libs.junit_4.classpath}
+javac.test.processorpath=\
+    ${javac.test.classpath}
+javadoc.additionalparam=
+javadoc.author=false
+javadoc.encoding=${source.encoding}
+javadoc.noindex=false
+javadoc.nonavbar=false
+javadoc.notree=false
+javadoc.private=false
+javadoc.splitindex=true
+javadoc.use=true
+javadoc.version=false
+javadoc.windowtitle=
+main.class=
+meta.inf.dir=${src.dir}/META-INF
+platform.active=default_platform
+run.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}
+# Space-separated list of JVM arguments used when running the project
+# (you may also define separate properties like run-sys-prop.name=value instead of -Dname=value
+# or test-sys-prop.name=value to set system properties for unit tests):
+run.jvmargs=
+run.test.classpath=\
+    ${javac.test.classpath}:\
+    ${build.test.classes.dir}
+source.encoding=UTF-8
+src.dir=${file.reference.de.uop.dimis.air-src}
